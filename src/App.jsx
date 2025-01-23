@@ -2,6 +2,7 @@ import React from "react";
 import { useState } from "react";
 import Modal from "./components/modal";
 import Button from "./components/button";
+import Input from "./components/input";
 
 function App() {
   const [state, setState] = useState({ name: "", surName: "", age: null });
@@ -46,7 +47,7 @@ function App() {
                 </span>
               </h2>
               <h2 className="text-lg text-gray-700">
-                Yosh: 
+                Yosh:
                 <span className="font-medium text-gray-800">{item.age}</span>
               </h2>
             </div>
@@ -55,14 +56,16 @@ function App() {
       </div>
 
       {modal && (
-        <Modal
-          setAdd={setAdd}
-          add={add}
-          setState={setState}
-          state={state}
-          randomId={randomId}
-          selModal={setModal}
-        />
+        <Modal selModal={setModal}>
+          <Input
+            setAdd={setAdd}
+            add={add}
+            setState={setState}
+            state={state}
+            randomId={randomId}
+            selModal={setModal}
+          />
+        </Modal>
       )}
     </div>
   );
