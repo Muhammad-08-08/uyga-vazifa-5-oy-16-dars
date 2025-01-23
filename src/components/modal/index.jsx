@@ -7,7 +7,9 @@ function Modal({ children, selModal }) {
         }}
         className="w-full h-[100vh] bg-black/50 fixed top-0 left-0"
       ></div>
-      {children}
+      <div className=" mt-10 w-max bg-white shadow-lg absolute px-10 py-20 rounded-lg shadow-black">
+        {children}
+      </div>
     </div>
   );
 }

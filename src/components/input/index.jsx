@@ -1,6 +1,6 @@
 function Input({ setState, state, setAdd, add, randomId, selModal }) {
   return (
-    <div className="flex flex-col gap-6 mt-10 w-max bg-white shadow-lg absolute px-10 py-20 rounded-lg shadow-black">
+    <div className="flex flex-col gap-6">
       <div className="flex flex-col gap-1 w-96">
         <label>ism</label>
         <input
@@ -57,12 +57,17 @@ function Input({ setState, state, setAdd, add, randomId, selModal }) {
         </button>
         <button
           onClick={() => {
-            if (state.age === 0 || state.name === "" || state.surName === "") {
+            if (
+              state.age === null ||
+              state.name === "" ||
+              state.surName === ""
+            ) {
               alert("iltimos bo'sh joylarni to'ldiring");
             } else {
               const new_arr = add.concat({ ...state, id: randomId() });
               setAdd(new_arr);
               setState({ name: "", surName: "", age: "" });
+              selModal(false);
             }
           }}
           className="w-32 h-11 text-white text-lg rounded-lg bg-green-500"
